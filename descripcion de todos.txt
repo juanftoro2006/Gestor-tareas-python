@@ -1,0 +1,10 @@
+Descripción de Cada Archivo/Carpeta
+README.md: Explicará el propósito del proyecto, instrucciones de instalación, cómo usarlo, y otros detalles.
+.gitignore: Evitará subir archivos innecesarios (como __pycache__ o configuraciones locales).
+requirements.txt: Lista de librerías necesarias para el proyecto (si usamos algo como pytest o manejo avanzado de JSON/SQLite).
+main.py: Entrada principal para ejecutar la aplicación.
+tasks/: Contiene módulos para organizar el código del sistema.
+task_manager.py: La lógica principal del sistema, como agregar, listar, editar y eliminar tareas.
+task.py: Definición de la clase Task para representar una tarea.
+data/: Carpeta para persistencia de datos (opcional, podemos usar JSON para almacenar tareas).
+tests/: Pruebas unitarias para garantizar que el código funciona correctamente.

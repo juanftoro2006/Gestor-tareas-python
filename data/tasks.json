@@ -1,0 +1,10 @@
+[
+    {
+        "titulo": "estudiar",
+        "descripcion": "estudiar para ser programador python",
+        "fecha_limite": "2025-02-15",
+        "completada": false,
+        "creada_en": "2025-01-29T22:50:07.041191",
+        "completada_en": null
+    }
+]
