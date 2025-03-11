@@ -6,5 +6,29 @@
         "completada": false,
         "creada_en": "2025-01-29T22:50:07.041191",
         "completada_en": null
+    },
+    {
+        "titulo": "Trabajo 10 horas d\u00eda",
+        "descripcion": "completar mis tareas de trabajo como desarrollador junior en python",
+        "fecha_limite": "2025-12-31",
+        "completada": false,
+        "creada_en": "2025-01-31T16:13:37.119334",
+        "completada_en": null
+    },
+    {
+        "titulo": "Estudio",
+        "descripcion": "Estudiar todos los d\u00edas c\u00f3digo y temas nuevos para ser desarrollador de software",
+        "fecha_limite": "2025-12-31",
+        "completada": false,
+        "creada_en": "2025-01-31T16:14:43.216589",
+        "completada_en": null
+    },
+    {
+        "titulo": "Ejercicio",
+        "descripcion": "Hacer ejercicio aerobico caminando por mi casa",
+        "fecha_limite": "2070-06-02",
+        "completada": false,
+        "creada_en": "2025-01-31T16:15:53.263065",
+        "completada_en": null
     }
 ]
