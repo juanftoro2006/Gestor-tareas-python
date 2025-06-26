@@ -1,8 +1,10 @@
 gestor-tareas-python-2
 |-- .gitignore
 |-- backend
+|   |-- app_api.py
 |   |-- data
 |   |   |-- tasks.json
+|   |-- estructura.txt
 |   |-- main.py
 |   |-- README.md
 |   |-- tasks
@@ -15,4 +17,10 @@ gestor-tareas-python-2
 |-- estructura.py
 |-- estructura.txt
 |-- frontend
+|   |-- index.html
+|   |-- main.html
+|   |-- scripts
+|   |   |-- app.js
+|   |-- styles
+|   |   |-- main.css
 |-- requirements.txt
