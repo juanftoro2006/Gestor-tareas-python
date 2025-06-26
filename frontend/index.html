@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Gestor de Tareas</h1>
+
+    <form id="form-tarea">
+      <input type="text" id="titulo" placeholder="Título de la tarea" required />
+      <input type="text" id="descripcion" placeholder="Descripción" required />
+      <input type="date" id="fecha" required />
+      <button type="submit">➕ Agregar</button>
+    </form>
+
+    <h2>Tareas registradas</h2>
+    <ul id="lista-tareas"></ul>
+  </div>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>

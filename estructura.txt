@@ -1,0 +1,18 @@
+gestor-tareas-python-2
+|-- .gitignore
+|-- backend
+|   |-- data
+|   |   |-- tasks.json
+|   |-- main.py
+|   |-- README.md
+|   |-- tasks
+|   |   |-- __init__.py
+|   |   |-- task.py
+|   |   |-- task_manager.py
+|   |-- tests
+|   |   |-- __init__.py
+|-- descripcion de todos.txt
+|-- estructura.py
+|-- estructura.txt
+|-- frontend
+|-- requirements.txt

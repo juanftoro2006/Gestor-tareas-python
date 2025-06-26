@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Gestor de Tareas</h1>
+
+    <!-- Formulario para crear tareas -->
+    <form id="task-form">
+      <input type="text" id="title" placeholder="Título" required />
+      <input type="text" id="description" placeholder="Descripción" required />
+      <input type="date" id="due-date" required />
+      <button type="submit">Agregar Tarea</button>
+    </form>
+
+    <hr />
+
+    <!-- Lista de tareas -->
+    <div id="task-list">
+      <!-- Las tareas se cargarán aquí dinámicamente -->
+    </div>
+  </div>
+
+  <script src="./scripts/app.js"></script>
+</body>
+</html>
