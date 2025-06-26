@@ -30,5 +30,13 @@
         "completada": false,
         "creada_en": "2025-01-31T16:15:53.263065",
         "completada_en": null
+    },
+    {
+        "titulo": "Conducir",
+        "descripcion": "Manejar todo el d\u00eda",
+        "fecha_limite": "2025-07-01",
+        "completada": false,
+        "creada_en": "2025-06-26T00:26:43.152734",
+        "completada_en": null
     }
 ]
