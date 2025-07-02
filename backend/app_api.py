@@ -20,7 +20,7 @@ class TareaEntrada(BaseModel):
 # 🌐 Configurar CORS para aceptar peticiones desde el frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:3000"],  # Puedes agregar más orígenes si lo necesitas
+    allow_origins=["http://127.0.0.1:3000", "http://127.0.0.1:5500"],  # Puedes agregar más orígenes si lo necesitas
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -31,7 +31,7 @@ app.add_middleware(
 def obtener_tareas():
     tareas_serializadas = [
         {
-            "id": i + 1,
+            "id": i + 1,    # el ID es el índice + 1
             "titulo": tarea.titulo,
             "descripcion": tarea.descripcion,
             "fecha_limite": tarea.fecha_limite.strftime("%Y-%m-%d"),
@@ -55,3 +55,19 @@ def crear_tarea(tarea: TareaEntrada):
         return {"mensaje": "✅ Tarea creada correctamente."}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+
+# ========================
+# ❌ DELETE /tareas/{id}
+# ========================
+
+@app.delete("/tareas/{id}")
+def eliminar_tarea(id: int):
+    # Validamos que el ID esté dentro del rango de tareas existentes
+    if 1 <= id <= len(gestor_tareas.tareas):
+        # Restamos 1 porque en Python los índices empiezan en 0
+        del gestor_tareas.tareas[id - 1]
+        return {"mensaje": "✅ Tarea eliminada correctamente"}
+    else:
+        raise HTTPException(status_code=404, detail="Tarea no encontrada")
+

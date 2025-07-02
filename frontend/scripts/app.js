@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const completada = tarea.completada ? "✅ Completada" : "❌ Pendiente";
 
+        // Pintar tarea
         taskCard.innerHTML = `
           <h3>${index + 1}. ${tarea.titulo}</h3>
           <p><strong>Descripción:</strong> ${tarea.descripcion}</p>
@@ -27,8 +28,32 @@ document.addEventListener('DOMContentLoaded', () => {
           <p><strong>Fecha Límite:</strong> ${tarea.fecha_limite}</p>
           <p><strong>Creada:</strong> ${tarea.creada_en}</p>
           <p><strong>Completada en:</strong> ${tarea.completada_en || "No completada"}</p>
+          <button class="btn-eliminar" data-id="${tarea.id}">❌ Eliminar</button>
         `;
 
+        // ✅ Agregar evento al botón de eliminar
+        const btnEliminar = taskCard.querySelector('.btn-eliminar');
+        btnEliminar.addEventListener('click', () => {
+          const id = btnEliminar.dataset.id;
+
+          // Enviar DELETE al backend
+          fetch(`http://127.0.0.1:8000/tareas/${id}`, {
+            method: 'DELETE'
+          })
+            .then(res => {
+              if (!res.ok) {
+                throw new Error('No se pudo eliminar la tarea');
+              }
+              // Eliminar visualmente del DOM
+              taskCard.remove();
+            })
+            .catch(error => {
+              console.error('❌ Error al eliminar la tarea:', error);
+              alert("Error al eliminar la tarea.");
+            });
+        });
+
+        // Agregar la tarjeta de tarea al contenedor
         taskList.appendChild(taskCard);
       });
     })
@@ -43,14 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault(); // Evita que el formulario recargue la página
 
-    // Obtener los valores del formulario
     const nuevaTarea = {
       titulo: document.getElementById('titulo').value,
       descripcion: document.getElementById('descripcion').value,
       fecha_limite: document.getElementById('fecha_limite').value
     };
 
-    // Enviar la nueva tarea al backend con POST
     fetch('http://127.0.0.1:8000/tareas', {
       method: 'POST',
       headers: {

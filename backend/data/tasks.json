@@ -32,11 +32,19 @@
         "completada_en": null
     },
     {
-        "titulo": "Conducir",
-        "descripcion": "Manejar todo el d\u00eda",
-        "fecha_limite": "2025-07-01",
+        "titulo": "comer cocodrilo",
+        "descripcion": "en un delicioso restaurante",
+        "fecha_limite": "2025-07-31",
         "completada": false,
-        "creada_en": "2025-06-26T00:26:43.152734",
+        "creada_en": "2025-07-02T16:56:08.894259",
+        "completada_en": null
+    },
+    {
+        "titulo": "comer cascanueces",
+        "descripcion": "ir a un bonito restaurante",
+        "fecha_limite": "2025-07-27",
+        "completada": false,
+        "creada_en": "2025-07-02T18:06:00.558437",
         "completada_en": null
     }
 ]

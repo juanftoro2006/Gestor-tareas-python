@@ -4,45 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gestor de Tareas</title>
-  <link rel="stylesheet" href="./styles/style.css" />
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="./styles/main.css" />
 </head>
 <body>
   <div class="container">
     <h1>📝 Gestor de Tareas</h1>
 
-    <!-- Formulario para crear tareas -->
+    <!-- ✅ Formulario para crear nuevas tareas -->
     <form id="task-form">
-      <input type="text" id="title" placeholder="Título" required />
-      <input type="text" id="description" placeholder="Descripción" required />
-      <input type="date" id="due-date" required />
-      <button type="submit">Agregar Tarea</button>
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo" placeholder="Título" required />
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" name="descripcion" placeholder="Descripción detallada" required></textarea>
+
+      <label for="fecha_limite">Fecha límite:</label>
+      <input type="date" id="fecha_limite" name="fecha_limite" required />
+
+      <button type="submit">➕ Agregar tarea</button>
     </form>
-
-  <section id="formulario-tarea">
-  <h2>Crear nueva tarea</h2>
-   <form id="task-form">
-    <label for="titulo">Título:</label>
-    <input type="text" id="titulo" name="titulo" required />
-
-    <label for="descripcion">Descripción:</label>
-    <textarea id="descripcion" name="descripcion" required></textarea>
-
-    <label for="fecha_limite">Fecha límite:</label>
-    <input type="date" id="fecha_limite" name="fecha_limite" required />
-
-    <button type="submit">Agregar tarea</button>
-   </form>
-  </section>
-
 
     <hr />
 
-    <!-- Lista de tareas -->
+    <!-- ✅ Aquí se mostrarán las tareas dinámicamente -->
     <div id="task-list">
-      <!-- Las tareas se cargarán aquí dinámicamente -->
+      <!-- Las tareas aparecerán aquí con JavaScript -->
     </div>
   </div>
 
+  <!-- Script JS -->
   <script src="./scripts/app.js"></script>
 </body>
 </html>
+<!-- 
+  Este es el archivo principal HTML que carga el gestor de tareas.
+  Asegúrate de que los archivos de estilos y scripts estén en las rutas correctas.
+-->
