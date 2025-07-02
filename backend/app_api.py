@@ -20,7 +20,7 @@ class TareaEntrada(BaseModel):
 # 🌐 Configurar CORS para aceptar peticiones desde el frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:3000", "http://127.0.0.1:5500"],  # Puedes agregar más orígenes si lo necesitas
+    allow_origins=["*"],  # Puedes agregar más orígenes si lo necesitas
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -70,4 +70,19 @@ def eliminar_tarea(id: int):
         return {"mensaje": "✅ Tarea eliminada correctamente"}
     else:
         raise HTTPException(status_code=404, detail="Tarea no encontrada")
+
+
+# ========================
+# ✅ PUT /tareas/{id}/completar
+# ========================
+
+@app.put("/tareas/{id}/completar")
+def completar_tarea(id: int):
+    try:
+        gestor_tareas.completar_tarea(id)
+        return {"mensaje": "✅ Tarea marcada como completada."}
+    except IndexError:
+        raise HTTPException(status_code=404, detail="Tarea no encontrada")
+
+
 

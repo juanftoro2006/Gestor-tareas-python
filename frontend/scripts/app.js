@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const completada = tarea.completada ? "✅ Completada" : "❌ Pendiente";
 
-        // Pintar tarea
+        // Pintar la tarea
         taskCard.innerHTML = `
           <h3>${index + 1}. ${tarea.titulo}</h3>
           <p><strong>Descripción:</strong> ${tarea.descripcion}</p>
@@ -28,15 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <p><strong>Fecha Límite:</strong> ${tarea.fecha_limite}</p>
           <p><strong>Creada:</strong> ${tarea.creada_en}</p>
           <p><strong>Completada en:</strong> ${tarea.completada_en || "No completada"}</p>
+          <button class="btn-completar" data-id="${tarea.id}" ${tarea.completada ? "disabled" : ""}>✔️ Completar</button>
           <button class="btn-eliminar" data-id="${tarea.id}">❌ Eliminar</button>
         `;
 
-        // ✅ Agregar evento al botón de eliminar
+        // 👉 Evento: Eliminar tarea
         const btnEliminar = taskCard.querySelector('.btn-eliminar');
         btnEliminar.addEventListener('click', () => {
           const id = btnEliminar.dataset.id;
 
-          // Enviar DELETE al backend
           fetch(`http://127.0.0.1:8000/tareas/${id}`, {
             method: 'DELETE'
           })
@@ -44,8 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
               if (!res.ok) {
                 throw new Error('No se pudo eliminar la tarea');
               }
-              // Eliminar visualmente del DOM
-              taskCard.remove();
+              taskCard.remove(); // Eliminar del DOM
             })
             .catch(error => {
               console.error('❌ Error al eliminar la tarea:', error);
@@ -53,7 +52,27 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Agregar la tarjeta de tarea al contenedor
+        // 👉 Evento: Completar tarea
+        const btnCompletar = taskCard.querySelector('.btn-completar');
+        btnCompletar?.addEventListener('click', () => {
+          const id = btnCompletar.dataset.id;
+
+          fetch(`http://127.0.0.1:8000/tareas/${id}/completar`, {
+            method: 'PUT'
+          })
+            .then(res => {
+              if (!res.ok) {
+                throw new Error('No se pudo completar la tarea');
+              }
+              location.reload(); // Refrescar
+            })
+            .catch(error => {
+              console.error('❌ Error al completar la tarea:', error);
+              alert("Error al completar la tarea.");
+            });
+        });
+
+        // ✅ Agregar al DOM
         taskList.appendChild(taskCard);
       });
     })
@@ -66,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Crear nueva tarea (enviar al backend)
   // ========================
   form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Evita que el formulario recargue la página
+    e.preventDefault(); // Evita el refresh
 
     const nuevaTarea = {
       titulo: document.getElementById('titulo').value,
@@ -88,8 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return res.json();
       })
       .then(() => {
-        form.reset();         // Limpiar el formulario
-        location.reload();    // Recargar para ver la nueva tarea
+        form.reset();         // Limpiar campos
+        location.reload();    // Ver nueva tarea
       })
       .catch(error => {
         console.error('❌ Error al crear tarea:', error);
